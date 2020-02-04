@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">GithubTest</string>
+    <string name="loading_projects">Загрузка проектов…</string>
+    <string name="project_name">Название проекта</string>
+    <string name="github_projects">Проекты пользователя %s</string>
+    <string name="project_list">Список проектов</string>
+    <string name="languages_">Языки: %s</string>
+    <string name="languages">Языки</string>
+    <string name="watchers_">Наблюдатели: %s</string>
+    <string name="watchers">Наблюдатели</string>
+    <string name="openIssues">Открытые проблемы</string>
+    <string name="created_at">Дата создания</string>
+    <string name="updated_at">Дата обновления</string>
+    <string name="clone_url">URL для клонирования: %s</string>
+    <string name="project_language">Язык проекта</string>
+    <string name="project_watchers">Наблюдатели проекта</string>
+    <string name="project_description">Описание проекта</string>
+    <string name="open_issues">Открытые проблемы</string>
+    <string name="loading_project">Загрузка проекта…</string>
+    <string name="github_default_user_name">JakeWharton</string>
+    <string name="input_github_username">Введите имя пользователя Github</string>
+    <string name="watch_github">Посмотреть Github</string>
+    <string name="error_input_username_empty">Вы не ввели имя пользователя</string>
+    <string name="error_no_projects">У данного пользователя нет проектов</string>
+    <string name="error_not_found_user">Пользователя не найден</string>
+    <string name="error_no_internet">Проблемы с интернет соединением. Проверьте подключение, вернитесь назад и повторите попытку</string>
+    <string name="error_unknown">Непредвиденная ошибка</string>
+    <string name="copy_url">Копировать Url</string>
+    <string name="copied_url">URL скопировано!</string>
+
+</resources>

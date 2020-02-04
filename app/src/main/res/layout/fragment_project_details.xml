@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="isLoading" type="boolean" />
+        <variable name="projectViewModel" type="medins.test.viewModel.ProjectViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:visibleGone="@{isLoading}">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                />
+
+            <TextView
+                android:id="@+id/loading_project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/loading_project"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/project_layout"
+            android:layout_marginStart="@dimen/item_horizontal_margin"
+            android:layout_marginEnd="@dimen/item_horizontal_margin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="5dp"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/logo_width"
+                android:layout_height="@dimen/logo_height"
+                android:src="@drawable/github"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/project_name"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/project_header1"
+                android:text="@{projectViewModel.project.name}"
+                android:textAlignment="center"
+                android:paddingBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/project_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/project_description"
+                android:textSize="@dimen/project_header2"
+                android:textStyle="italic"
+                android:text="@{projectViewModel.project.description}"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/view_top_margin_small">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:showDividers="middle"
+                    android:dividerPadding="@dimen/divider_padding"
+                    android:divider="@drawable/vertical_divider">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="@dimen/layout_start_margin">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/project_language"
+                            android:textSize="@dimen/project_text_small"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:text="@string/languages"/>
+
+                        <TextView
+                            android:id="@+id/languages"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/project_language"
+                            android:textSize="@dimen/project_text"
+                            android:text="@{projectViewModel.project.language}"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="@dimen/layout_start_margin">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/project_watchers"
+                            android:textSize="@dimen/project_text_small"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:text="@string/watchers"/>
+
+                        <TextView
+                            android:id="@+id/project_watchers"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/project_watchers"
+                            android:textSize="@dimen/project_text"
+                            android:text="@{String.valueOf(projectViewModel.project.watchers)}"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="@dimen/layout_start_margin">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/open_issues"
+                            android:textSize="@dimen/project_text_small"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:text="@string/openIssues"/>
+
+                        <TextView
+                            android:id="@+id/project_open_issues"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/open_issues"
+                            android:textSize="@dimen/project_text"
+                            android:text="@{String.valueOf(projectViewModel.project.open_issues)}"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/view_top_margin_small">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:showDividers="middle"
+                    android:dividerPadding="@dimen/divider_padding"
+                    android:divider="@drawable/vertical_divider">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/layout_start_margin">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/project_text_small"
+                            android:text="@string/created_at"/>
+
+                        <TextView
+                            android:id="@+id/project_created_at"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:textSize="@dimen/project_text"
+                            android:text="@{projectViewModel.project.created_at.toLocaleString()}"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/layout_start_margin">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/project_text_small"
+                            android:text="@string/updated_at"/>
+
+                        <TextView
+                            android:id="@+id/project_updated_at"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:textSize="@dimen/project_text"
+                            android:text="@{projectViewModel.project.updated_at.toLocaleString()}"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/copy_url"
+                android:layout_marginTop="@dimen/view_top_margin"
+                android:textColor="@android:color/white"
+                android:background="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/item_horizontal_margin"
+                android:paddingStart="@dimen/item_horizontal_margin"
+                android:text="@string/copy_url"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/error_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+</layout>
